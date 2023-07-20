@@ -1,6 +1,7 @@
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 
+
 const Board = ({
   board,
   setBoard,
@@ -43,7 +44,7 @@ const Board = ({
   };
 
   function allFilled(board) {
-    return board.contains(null);
+    return board.includes(null);
   }
 
   const isWon = (board) => {
