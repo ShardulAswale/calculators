@@ -79,8 +79,8 @@ function App() {
             </Typography>
           </Paper>
         </Stack>
-        {`Board` + JSON.stringify(board)}
-        {`Player` + JSON.stringify(player)}
+        {/* {`Board` + JSON.stringify(board)}
+        {`Player` + JSON.stringify(player)} */}
         {winner && (
           <Typography variant="h1" sx={{ color: "green", p: 1 }}>
             Winner is {winner}
