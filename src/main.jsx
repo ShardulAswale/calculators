@@ -6,5 +6,12 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+ 
+ );
+ 
+//  if (process.env.NODE_ENV === "development") {
+//    import("autopreview/react").then(({ default: AutoPreview }) => {
+//      new AutoPreview("#root");
+//    });
+//  }

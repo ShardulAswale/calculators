@@ -1,7 +1,6 @@
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 
-
 const Board = ({
   board,
   setBoard,
@@ -12,6 +11,8 @@ const Board = ({
   player,
   setPlayer,
 }) => {
+  var player1sign = "X";
+  var player2sign = "O";
   const winningSet = [
     [0, 3, 6],
     [1, 4, 7],
@@ -27,7 +28,7 @@ const Board = ({
     if (!isFilled()) return; //already played check
     const newboard = board.map((value, idx) => {
       if (idx === boxidx) {
-        return player ? "X" : "O";
+        return player ? player1sign : player2sign;
       } else {
         return value;
       }
@@ -36,6 +37,7 @@ const Board = ({
     console.log(newboard);
     console.log(allFilled(newboard));
     isWon(newboard); // win check
+    isDraw(newboard); // draw check
     setPlayer(!player); // set to next player
   };
 
@@ -47,21 +49,28 @@ const Board = ({
     return board.includes(null);
   }
 
+  function isDraw(board) {
+    if (!board.includes(null)) {
+      setWinner("Draw");
+    }
+    console.log(board.includes(null), !board.includes(null));
+  }
+
   const isWon = (board) => {
     console.log("in check board " + board);
     winningSet.map((set) => {
       const [x, y, z] = set;
       if (board[x] && board[x] === board[y] && board[y] === board[z]) {
         console.log("winner is " + board[x]);
-        if (board[x] === "X") {
+        if (board[x] === player1sign) {
           setScore({ ...score, score1: score.score1 + 1 });
           console.log(score);
-          setWinner("X");
+          setWinner("Winner is " + player1sign);
         }
-        if (board[x] === "O") {
+        if (board[x] === player2sign) {
           setScore({ ...score, score2: score.score2 + 1 });
           console.log(score);
-          setWinner("O");
+          setWinner("Winner is " + player2sign);
         }
         return board[x];
       }
