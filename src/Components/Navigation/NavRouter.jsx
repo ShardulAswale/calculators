@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 import TicTacToe from "../TicTacToe/TicTacToe";
 import Page404 from "../404page/Page404";
@@ -12,7 +12,7 @@ import TempConvertorV2 from "../TempConvertor/TempConvertorV2";
 const NavRouter = () => {
   // var name = <Home />;
   return (
-    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/calculators/'}>
+    <HashRouter>
       <Routes>
         <Route index element={<Home />} />
         <Route path="/tic-tac-toe" element={<TicTacToe />} />
@@ -23,7 +23,7 @@ const NavRouter = () => {
           <Route path={URI.link} element={URI.element} />
         })} */}
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
