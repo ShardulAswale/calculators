@@ -12,7 +12,7 @@ import TempConvertorV2 from "../TempConvertor/TempConvertorV2";
 const NavRouter = () => {
   // var name = <Home />;
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/calculators/'}>
       <Routes>
         <Route index element={<Home />} />
         <Route path="/tic-tac-toe" element={<TicTacToe />} />
