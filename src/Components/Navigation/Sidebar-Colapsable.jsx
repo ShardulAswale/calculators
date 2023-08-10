@@ -16,17 +16,12 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import NavRouter from "./NavRouter";
 import URLLinks from "./links";
-import { Home as HomeIcon } from "@mui/icons-material";
-import ErrorIcon from "@mui/icons-material/Error";
-// import { TagIcon } from "@mui/icons-material";
-import BrowseGalleryIcon from "@mui/icons-material/BrowseGallery";
-import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+
 import { Delete } from "@mui/icons-material";
+import * as icons from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -140,60 +135,42 @@ export default function AutoPreviewMiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        {/* <List>
-          {['Home','Tic Tac Toe',''].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider /> */}
         <List>
-          {URLLinks.map((uri, index) => (
-            <ListItem key={uri.id} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-                href={uri.link}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-                  {uri.icon ? uri.icon : <Delete/>}
-                  {/* <Delete /> */}
-                </ListItemIcon>
-                <ListItemText
-                  primary={uri.name}
-                  sx={{ opacity: open ? 1 : 0 }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          {URLLinks.map((uri, index) => {
+            const Icon = icons[uri.icon];
+            return (
+              <ListItem key={uri.id} disablePadding sx={{ display: "block" }}>
+                {console.log(uri.link)}
+                <Link to= {uri.link}>
+                  <ListItemButton
+                    sx={{
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
+                    }}
+                    // href={uri.link}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                      {Icon ? <Icon /> : <Delete />}
+
+                      {/* <Delete /> */}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={uri.name}
+                      sx={{ opacity: open ? 1 : 0 }}
+                    />
+                  </ListItemButton>
+                </Link>
+              </ListItem>
+            );
+          })}
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

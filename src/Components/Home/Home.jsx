@@ -7,3 +7,7 @@ const Home = () => {
 };
 
 export default Home;
+
+export function home2() {
+  console.log("home2");
+}
