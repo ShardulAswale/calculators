@@ -35,10 +35,6 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-      - name: path move
-        run: cd src
-      - name: path check
-        run: ls -ltra
       - name: Install dependencies
         run: npm install
       - name: Build
