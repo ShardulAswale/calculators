@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import TicTacToe from "../TicTacToe/TicTacToe";
 import Page404 from "../404page/Page404";
-import Home from "../src/Home/home";
+import Home from "../Home/Home";
 import URLLinks from "./links";
 import TimeZone from "../TimeZone/TimeZone";
 import TempConvertor from "../TempConvertor/TempConvertor";
