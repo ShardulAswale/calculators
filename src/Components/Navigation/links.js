@@ -17,7 +17,7 @@ const URLLinks = [
     id: 2,
     name: "Time Zone Convertor",
     link: "/time-zone-convertor",
-    icon: "BrowseGallery"
+    icon: "BrowseGallery",
     // element: (<TimeZone/>),
   },
   {
@@ -29,6 +29,13 @@ const URLLinks = [
   },
   {
     id: 4,
+    name: "Todo List",
+    link: "/todo-list",
+    icon: "ListAlt",
+    // element: (<TempConvertor/>),
+  },
+  {
+    id: 5,
     name: "Error404",
     link: "/*",
     icon: "Error",

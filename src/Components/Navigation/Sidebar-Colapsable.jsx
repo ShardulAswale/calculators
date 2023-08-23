@@ -136,7 +136,7 @@ export default function AutoPreviewMiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {URLLinks.map((uri, index) => {
+          {URLLinks.map((uri) => {
             const Icon = icons[uri.icon];
             return (
               <ListItem key={uri.id} disablePadding sx={{ display: "block" }}>

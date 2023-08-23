@@ -1,4 +1,3 @@
-import React from "react";
 import URLLinks from "../Navigation/links";
 
 const Home = () => {
@@ -7,7 +6,3 @@ const Home = () => {
 };
 
 export default Home;
-
-export function home2() {
-  console.log("home2");
-}

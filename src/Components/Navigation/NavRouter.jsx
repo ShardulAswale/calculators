@@ -9,6 +9,7 @@ import TimeZone from "../TimeZone/TimeZone";
 import TempConvertor from "../TempConvertor/TempConvertor";
 import TempConvertorV2 from "../TempConvertor/TempConvertorV2";
 import { HomeMax } from "@mui/icons-material";
+import TodoList from "../Todo/TodoList";
 
 const NavRouter = () => {
   // var name = <Home />;
@@ -18,7 +19,9 @@ const NavRouter = () => {
       <Route path="/tic-tac-toe" element={<TicTacToe />} />
       <Route path="/time-zone-convertor" element={<TimeZone />} />
       <Route path="/temp-convertor" element={<TempConvertorV2 />} />
+      <Route path="/todo-list" element={<TodoList />} />
       <Route path="*" element={<Page404 />} />
+      
       {/* {URLLinks.map((URI) => {
         <Route path={URI.link} element={URI.element} />
       })} */}
