@@ -1,0 +1,305 @@
+{
+    "conversions": [
+      {
+        "from": "kg",
+        "to": "lb",
+        "formula": "value * 2.20462"
+      },
+      {
+        "from": "lb",
+        "to": "kg",
+        "formula": "value / 2.20462"
+      },
+      {
+        "from": "kg",
+        "to": "g",
+        "formula": "value * 1000"
+      },
+      {
+        "from": "g",
+        "to": "kg",
+        "formula": "value / 1000"
+      },
+      {
+        "from": "g",
+        "to": "mg",
+        "formula": "value * 1000"
+      },
+      {
+        "from": "mg",
+        "to": "g",
+        "formula": "value / 1000"
+      },
+      {
+        "from": "carat",
+        "to": "centigram",
+        "formula": "value * 22679.619"
+      },
+      {
+        "from": "centigram",
+        "to": "carat",
+        "formula": "value / 22679.619"
+      },
+      {
+        "from": "centigram",
+        "to": "decigram",
+        "formula": "value * 10"
+      },
+      {
+        "from": "decigram",
+        "to": "centigram",
+        "formula": "value / 10"
+      },
+      {
+        "from": "decigram",
+        "to": "dekagram",
+        "formula": "value / 100"
+      },
+      {
+        "from": "dekagram",
+        "to": "decigram",
+        "formula": "value * 100"
+      },
+      {
+        "from": "dekagram",
+        "to": "dram",
+        "formula": "value * 564.3833912"
+      },
+      {
+        "from": "dram",
+        "to": "dekagram",
+        "formula": "value / 564.3833912"
+      },
+      {
+        "from": "dram",
+        "to": "dyne",
+        "formula": "value * 17733850.28"
+      },
+      {
+        "from": "dyne",
+        "to": "dram",
+        "formula": "value / 17733850.28"
+      },
+      {
+        "from": "dyne",
+        "to": "grain",
+        "formula": "value * 0.00220462262"
+      },
+      {
+        "from": "grain",
+        "to": "dyne",
+        "formula": "value / 0.00220462262"
+      },
+      {
+        "from": "grain",
+        "to": "gram",
+        "formula": "value * 0.06479891"
+      },
+      {
+        "from": "gram",
+        "to": "grain",
+        "formula": "value / 0.06479891"
+      },
+      {
+        "from": "gram",
+        "to": "hundredweight (long, UK)",
+        "formula": "value * 0.01968413"
+      },
+      {
+        "from": "hundredweight (long, UK)",
+        "to": "gram",
+        "formula": "value / 0.01968413"
+      },
+      {
+        "from": "hundredweight (short, US)",
+        "to": "kilogram",
+        "formula": "value * 45.359237"
+      },
+      {
+        "from": "kilogram",
+        "to": "hundredweight (short, US)",
+        "formula": "value / 45.359237"
+      },
+      {
+        "from": "kilogram",
+        "to": "kiloton (long, UK)",
+        "formula": "value * 2.229691e-7"
+      },
+      {
+        "from": "kiloton (long, UK)",
+        "to": "kilogram",
+        "formula": "value / 2.229691e-7"
+      },
+      {
+        "from": "kiloton (short, US)",
+        "to": "kilogram",
+        "formula": "value / 2e-6"
+      },
+      {
+        "from": "kilogram",
+        "to": "kiloton (short, US)",
+        "formula": "value * 2e-6"
+      },
+      {
+        "from": "kilogram",
+        "to": "kiloton (metric)",
+        "formula": "value * 2.204623e-7"
+      },
+      {
+        "from": "kiloton (metric)",
+        "to": "kilogram",
+        "formula": "value / 2.204623e-7"
+      },
+      {
+        "from": "megagram",
+        "to": "gram",
+        "formula": "value * 1000000"
+      },
+      {
+        "from": "gram",
+        "to": "megagram",
+        "formula": "value / 1000000"
+      },
+      {
+        "from": "megatonne",
+        "to": "kilogram",
+        "formula": "value * 1000000000"
+      },
+      {
+        "from": "kilogram",
+        "to": "megatonne",
+        "formula": "value / 1000000000"
+      },
+      {
+        "from": "milligram",
+        "to": "gram",
+        "formula": "value / 1000"
+      },
+      {
+        "from": "gram",
+        "to": "milligram",
+        "formula": "value * 1000"
+      },
+      {
+        "from": "ounce",
+        "to": "gram",
+        "formula": "value * 28.34952"
+      },
+      {
+        "from": "gram",
+        "to": "ounce",
+        "formula": "value / 28.34952"
+      },
+      {
+        "from": "ounce (troy)",
+        "to": "gram",
+        "formula": "value * 31.10348"
+      },
+      {
+        "from": "gram",
+        "to": "ounce (troy)",
+        "formula": "value / 31.10348"
+      },
+      {
+        "from": "pennyweight (troy)",
+        "to": "gram",
+        "formula": "value * 1.555174"
+      },
+      {
+        "from": "gram",
+        "to": "pennyweight (troy)",
+        "formula": "value / 1.555174"
+      },
+      {
+        "from": "pound",
+        "to": "gram",
+        "formula": "value * 453.5924"
+      },
+      {
+        "from": "gram",
+        "to": "pound",
+        "formula": "value / 453.5924"
+      },
+      {
+        "from": "pound (troy)",
+        "to": "gram",
+        "formula": "value * 373.2417"
+      },
+      {
+        "from": "gram",
+        "to": "pound (troy)",
+        "formula": "value / 373.2417"
+      },
+      {
+        "from": "quarter (UK)",
+        "to": "kilogram",
+        "formula": "value * 28.34952"
+      },
+      {
+        "from": "kilogram",
+        "to": "quarter (UK)",
+        "formula": "value / 28.34952"
+      },
+      {
+        "from": "quarter (US)",
+        "to": "kilogram",
+        "formula": "value * 22.67962"
+      },
+      {
+        "from": "kilogram",
+        "to": "quarter (US)",
+        "formula": "value / 22.67962"
+      },
+      {
+        "from": "stone",
+        "to": "kilogram",
+        "formula": "value * 6.350293"
+      },
+      {
+        "from": "kilogram",
+        "to": "stone",
+        "formula": "value / 6.350293"
+      },
+      {
+        "from": "slug",
+        "to": "kilogram",
+        "formula": "value * 14.59390"
+      },
+      {
+        "from": "kilogram",
+        "to": "slug",
+        "formula": "value / 14.59390"
+      },
+      {
+        "from": "ton (long, UK)",
+        "to": "kilogram",
+        "formula": "value * 1016.0469088"
+      },
+      {
+        "from": "kilogram",
+        "to": "ton (long, UK)",
+        "formula": "value / 1016.0469088"
+      },
+      {
+        "from": "ton (short, US)",
+        "to": "kilogram",
+        "formula": "value * 907.18474"
+      },
+      {
+        "from": "kilogram",
+        "to": "ton (short, US)",
+        "formula": "value / 907.18474"
+      },
+      {
+        "from": "ton (metric)",
+        "to": "kilogram",
+        "formula": "value * 1000"
+      },
+      {
+        "from": "kilogram",
+        "to": "ton (metric)",
+        "formula": "value / 1000"
+      }
+    ]
+  }
+  

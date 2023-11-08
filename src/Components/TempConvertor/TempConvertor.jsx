@@ -1,152 +1,133 @@
-import { styled } from "@mui/material/styles";
+import React, { useState } from "react";
 import {
   Box,
-  Button,
-  Grid,
-  Paper,
-  Stack,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
-import { useState } from "react";
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  minHeight: 40,
-  color: theme.palette.text.secondary,
-}));
 
 const TempConvertor = () => {
-  const init_values = [0, 273.15, 32];
-  const [Temps, setTemps] = useState([0, 273.15, 32]);
+  const temperatureUnits = ["°C", "°F", "K"];
+  const [temp, setTemp] = useState(0);
+  const [sourceUnit, setSourceUnit] = useState("°C");
+  const [showFormulas, setShowFormulas] = useState(false);
 
-  function Convert(e, Temp, Type) {
-    // e.preventDefault();
-    switch (Type) {
-      case "C": {
-        console.log("Case C");
-        setTemps([Temp, Temp + 263.15, (Temp * 9) / 5 + 32]);
-      }
-      case "F": {
-        console.log("Case F");
-        setTemps([Temp, Temp + 263.15, (Temp * 9) / 5 + 32]);
-      }
-      case "K": {
-        console.log("Case K");
-        setTemps([Temp, Temp + 263.15, (Temp * 9) / 5 + 32]);
-      }
+  const formulas = {
+    "°C": [
+      "For Celsius to Fahrenheit: T(°F) = (T(°C) * 9/5) + 32",
+      "For Celsius to Kelvin: T(K) = T(°C) + 273.15",
+    ],
+    "°F": [
+      "For Fahrenheit to Celsius: T(°C) = (T(°F) - 32) * 5/9",
+      "For Fahrenheit to Kelvin: T(K) = (T(°F) + 459.67) * 5/9",
+    ],
+    K: [
+      "For Kelvin to Celsius: T(°C) = T(K) - 273.15",
+      "For Kelvin to Fahrenheit: T(°F) = (T(K) * 9/5) - 459.67",
+    ],
+  };
+
+  const selectedFormulas = formulas[sourceUnit];
+
+  function convertToCelsius() {
+    if (sourceUnit === "°F") {
+      const celsius = ((temp - 32) * 5) / 9;
+      return `${temp}°F = ${celsius.toFixed(2)}°C`;
+    } else if (sourceUnit === "K") {
+      const kelvin = temp >= 0 ? temp : 0;
+      const celsius = kelvin - 273.15;
+      return `${temp}K = ${celsius.toFixed(2)}°C`;
     }
+    return ""; // No conversion needed for °C
   }
+
+  function convertToFahrenheit() {
+    if (sourceUnit === "°C") {
+      const fahrenheit = (temp * 9) / 5 + 32;
+      return `${temp}°C = ${fahrenheit.toFixed(2)}°F`;
+    } else if (sourceUnit === "K") {
+      const kelvin = temp >= 0 ? temp : 0;
+      const fahrenheit = ((kelvin - 273.15) * 9) / 5 + 32;
+      return `${temp}K = ${fahrenheit.toFixed(2)}°F`;
+    }
+    return ""; // No conversion needed for °F
+  }
+
+  function convertToKelvin() {
+    if (sourceUnit === "°C") {
+      const kelvin = temp + 273.15;
+      return `${temp}°C = ${kelvin.toFixed(2)}K`;
+    } else if (sourceUnit === "°F") {
+      const kelvin = ((temp - 32) * 5) / 9 + 273.15;
+      return `${temp}°F = ${kelvin.toFixed(2)}K`;
+    }
+    return ""; // No conversion needed for K
+  }
+
+  const handleSourceUnitChange = (event) => {
+    setSourceUnit(event.target.value);
+  };
+
+  const toggleFormulas = () => {
+    setShowFormulas(!showFormulas);
+  };
+
+  const formulaStyle = {
+    display: showFormulas ? "block" : "none",
+    marginTop: "10px",
+  };
+
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={4}>
-          {/* <Paper> */}
-          <Grid xs={4}>
-            <Item>
-              <Typography>C</Typography>
-            </Item>
-          </Grid>
-          <Grid xs={4}>
-            <Item>
-              <TextField
-                type="number"
-                value={init_values[0]}
-                // onChange={(e) => {
-                //   console.log(e);
-                //   var C = parseFloat(e.target.value);
-                //   setTemps([C, C + 263.15, (C * 9) / 5 + 32]);
-                // }}
-              ></TextField>
-            </Item>
-          </Grid>
-          <Grid>
-            <Button
-              variant="filledTonal"
-              // onClick={(e) => {
-              //   console.log(e);
-              //   var C = parseFloat(e.target.value);
-              //   setTemps([C, C + 263.15, (C * 9) / 5 + 32]);
-              // }}
-              onClick={(e) => Convert(e.target.value, "C")}
-            >
-              Calculate
-            </Button>
-          </Grid>
-          {/* </Paper> */}
-          {/* <Paper> */}
-          <Grid xs={4}>
-            <Item>
-              <Typography>F</Typography>
-            </Item>
-          </Grid>
-          <Grid xs={4}>
-            <Item>
-              <TextField
-                type="number"
-                value={init_values[1]}
-                // onChange={(e) => {
-                //   e.preventDefault();
-                //   console.log(e);
-                //   var F = parseFloat(e.target.value);
-                //   setTemps([((F - 32) * 5) / 9, ((F + 459.67) * 5) / 9, F]);
-                // }}
-              ></TextField>
-            </Item>
-          </Grid>
-          <Grid>
-            <Button
-              variant="outlined"
-              onClick={(e) => {
-                e.preventDefault();
-                console.log(e);
-                var F = parseFloat(e.target.value);
-                setTemps([((F - 32) * 5) / 9, ((F + 459.67) * 5) / 9, F]);
-              }}
-            >
-              Calculate
-            </Button>
-          </Grid>
-          {/* </Paper> */}
-          {/* <Paper> */}
-          <Grid xs={4}>
-            <Item>
-              <Typography>K</Typography>
-            </Item>
-          </Grid>
-          <Grid xs={4}>
-            <Item>
-              <TextField
-                type="number"
-                value={init_values[2]}
-                // onChange={(e) => {
-                //   console.log(e);
-                //   e.preventDefault();
-                //   var K = parseFloat(e.target.value);
-                //   setTemps([K - 263.15, K, (K * 9) / 5 - 459.67]);
-                // }}
-              ></TextField>
-            </Item>
-          </Grid>
-          <Grid>
-            <Button
-              variant="outlined"
-              onClick={(e) => {
-                console.log(e);
-                e.preventDefault();
-                var K = parseFloat(e.target.value);
-                setTemps([K - 263.15, K, (K * 9) / 5 - 459.67]);
-              }}
-            >
-              Calculate
-            </Button>
-          </Grid>
-          {/* </Paper> */}
-        </Grid>
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="source-unit-label">Source Unit</InputLabel>
+          <Select
+            labelId="source-unit-label"
+            id="source-unit"
+            value={sourceUnit}
+            onChange={handleSourceUnitChange}
+          >
+            {temperatureUnits.map((unit) => (
+              <MenuItem key={unit} value={unit}>
+                {unit}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        <TextField
+          type="number"
+          value={temp}
+          onChange={(e) => setTemp(parseFloat(e.target.value))}
+        />
+
+        <br />
+        <div>
+          <strong>Conversions:</strong>
+          <ul>
+            <li>{convertToCelsius()}</li>
+            <li>{convertToFahrenheit()}</li>
+            <li>{convertToKelvin()}</li>
+          </ul>
+        </div>
+
+        <Typography variant="h6" onClick={toggleFormulas} style={{ cursor: "pointer" }}>
+          Toggle Formulas
+        </Typography>
+
+        <div style={formulaStyle}>
+          <Typography variant="subtitle1">Formulas:</Typography>
+          <ul>
+            {selectedFormulas &&
+              selectedFormulas.map((formula, index) => (
+                <li key={index}>{formula}</li>
+              ))}
+          </ul>
+        </div>
       </Box>
     </div>
   );

@@ -36,6 +36,13 @@ const URLLinks = [
   },
   {
     id: 5,
+    name: "Weight Convertor",
+    link: "/weight-convertor",
+    icon: "Scale",
+    // element: (<TempConvertor/>),
+  },
+  {
+    id: 99,
     name: "Error404",
     link: "/*",
     icon: "Error",
